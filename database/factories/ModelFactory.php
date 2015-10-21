@@ -20,11 +20,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Tip::class, function ($faker) {
+$factory->define(App\Legionnaire::class, function ($faker) {
     return [
-        'name' => 'Some Tip Name',
+        'name' => 'Some Legionnaire Name',
         'oneline' => 'Some brief but descriptive one-liner',
-        'description' => 'This is **my** tip description.'
+        'description' => 'This is **my** legionnaire description.'
     ];
 });
 

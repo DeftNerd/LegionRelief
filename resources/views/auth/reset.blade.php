@@ -5,7 +5,7 @@
 @section('content')
 <div class="col-md-6 col-md-offset-3">
 
-    <h1>Reset Your LaraBrain Password</h1>
+    <h1>Reset Your LegionRelief Password</h1>
 
     {!! Form::open(
     	[
@@ -22,7 +22,7 @@
       {!! Form::text('email', null, 
         [
          'class'       => 'form-control', 
-         'placeholder' => 'nerd@larabrain.com'
+         'placeholder' => 'username@domain.com'
         ]) !!}
     </div>
 

@@ -1,6 +1,6 @@
 @extends('layouts.accounts')
 
-@section('title', 'Sign in to your LaraBrain account')
+@section('title', 'Sign in to your LegionRelief account')
 
 @section('content')
 <div class="col-md-6 col-md-offset-3">
@@ -12,7 +12,7 @@
   ]
 ) !!}
 
-  <h1>Sign In to Your LaraBrain Account</h1>
+  <h1>Sign In to Your LegionRelief Account</h1>
 
   <div class="form-group">
     {!! Form::label('email', 'Your E-mail Address') !!}

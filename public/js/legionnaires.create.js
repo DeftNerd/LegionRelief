@@ -29,7 +29,7 @@
 
   });
 
-  $("#tip-form").submit(function(e) {
+  $("#legionnaire-form").submit(function(e) {
     var catArray = [];
     $('.category-label-selected').each(function(i, obj) {
       catArray.push($(this).data('id'));

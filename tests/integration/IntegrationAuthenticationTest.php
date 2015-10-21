@@ -9,21 +9,21 @@ class IntegrationAuthenticationTest extends TestCase
 
     use DatabaseMigrations;
 
-    public function testUnauthenticatedUserCantSeeSubmitTipForm()
+    public function testUnauthenticatedUserCantSeeSubmitLegionnaireForm()
     {
         $this->visit('/')
-             ->click('tip-submit')
+             ->click('legionnaire-submit')
              ->seePageIs('/login');
     }
 
-    public function testAuthenticatedUserCanSeeSubmitTipForm()
+    public function testAuthenticatedUserCanSeeSubmitLegionnaireForm()
     {
         $user = factory(App\User::class)->create();
 
         $this->actingAs($user)
              ->visit('/')
-             ->click('tip-submit')
-             ->see('Submit a Tip');
+             ->click('legionnaire-submit')
+             ->see('Submit a Legionnaire');
     }
 
     public function testAuthenticatedUserCanSeeHisName()

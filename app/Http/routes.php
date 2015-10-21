@@ -25,26 +25,26 @@ Route::group(
       
       Route::get('/', 
         [
-          'as' => 'admin.tips.index', 
-          'uses' => 'TipsController@index'
+          'as' => 'admin.legionnaires.index', 
+          'uses' => 'LegionnairesController@index'
         ]
       );
 
-      Route::post('/tips/approve/{id}', 
+      Route::post('/legionnaires/approve/{id}', 
         [
-          'as' => 'admin_tips_approve',
-          'uses' => 'TipsController@approve'
+          'as' => 'admin_legionnaires_approve',
+          'uses' => 'LegionnairesController@approve'
         ]
       );
 
-      Route::post('/tips/unapprove/{id}', 
+      Route::post('/legionnaires/unapprove/{id}', 
         [
-          'as' => 'admin_tips_unapprove',
-          'uses' => 'TipsController@unapprove'
+          'as' => 'admin_legionnaires_unapprove',
+          'uses' => 'LegionnairesController@unapprove'
         ]
       );
 
-      Route::resource('tips', 'TipsController');
+      Route::resource('legionnaires', 'LegionnairesController');
       Route::resource('users', 'UsersController');
 
   });
@@ -95,7 +95,7 @@ Route::post('contact',
 );
 
 /**
- * Tip-related routes
+ * Legionnaire-related routes
  * 
  */
 
@@ -104,37 +104,37 @@ Route::resource('categories', 'CategoryController');
 Route::get('search', 
   [
     'as' => 'search', 
-    'uses' => 'TipController@search'
+    'uses' => 'LegionnaireController@search'
   ]
 );
 
-Route::post('tips/star', 
+Route::post('legionnaires/star', 
   [
-  	'as' => 'tips.star', 
-    'uses' => 'TipController@star'
+  	'as' => 'legionnaires.star', 
+    'uses' => 'LegionnaireController@star'
   ]
 );
 
-Route::get('tips/popular', 
+Route::get('legionnaires/popular', 
   [
-    'as' => 'tips.popular', 
-    'uses' => 'TipController@popular'
+    'as' => 'legionnaires.popular', 
+    'uses' => 'LegionnaireController@popular'
   ]
 );
 
-Route::get('tips/new', 
+Route::get('legionnaires/new', 
   [
-    'as' => 'tips.latest', 
-    'uses' => 'TipController@latest'
+    'as' => 'legionnaires.latest', 
+    'uses' => 'LegionnaireController@latest'
   ]
 );
 
-Route::resource('tips', 'TipController');
+Route::resource('legionnaires', 'LegionnaireController');
 
-Route::get('/users/{username}/tips', 
+Route::get('/users/{username}/legionnaires', 
   [
-    'as' => 'user.tips', 
-    'uses' => 'UsersController@tips'
+    'as' => 'user.legionnaires', 
+    'uses' => 'UsersController@legionnaires'
   ]
 );
 

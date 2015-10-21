@@ -1,24 +1,24 @@
 @extends('layouts.app')
 
-@section('title', $tip->name)
+@section('title', $legionnaire->name)
 
 @section('content')
 	
 	<div class="row">
 		<div class="col-md-12">
 
-			@if (! $tip->isApproved())
+			@if (! $legionnaire->isApproved())
 
 			<p>
-			This tip has not yet been approved. In the meantime, 
-			feel free to edit it. Our team will review the tip as soon as possible!
+			This legionnaire has not yet been approved. In the meantime, 
+			feel free to edit it. Our team will review the legionnaire as soon as possible!
 			</p>
 
 			@if (\Auth::user()->isAdmin())
 
 	            {!! Form::open(
 	              [
-	                'route' => ['admin_tips_approve', $tip->id], 
+	                'route' => ['admin_legionnaires_approve', $legionnaire->id], 
 	                'method' => 'post'
 	              ]) !!}
 	                <button type="submit" class="btn btn-danger btn-mini">Approve</button>
@@ -29,23 +29,23 @@
 			@endif
 
 			<h1 style="margin-top: 0px;">
-			{{ $tip->name }}
+			{{ $legionnaire->name }}
 			</h1>
 			@include(
 				'partials._category_buttons', 
-				['categories' => $tip->categories]
+				['categories' => $legionnaire->categories]
 			)
 
 			<div class="pull-right">
 				@if (Auth::user())
-					{!! Form::open(array('route' => 'tips.star', 'id' => 'tip-star', 'class' => 'form')) !!}
-						{!! Form::hidden('id', $tip->id) !!}
+					{!! Form::open(array('route' => 'legionnaires.star', 'id' => 'legionnaire-star', 'class' => 'form')) !!}
+						{!! Form::hidden('id', $legionnaire->id) !!}
 						<button type="submit" class="btn btn-info btn-xs">
-						  @include('partials._star_button', ['id' => $tip->id, 'user' => Auth::user()])
+						  @include('partials._star_button', ['id' => $legionnaire->id, 'user' => Auth::user()])
 						</button>
 
-						@if (\App\Tip::isEditable($tip->id))
-							<a class="btn btn-info btn-xs" href="/tips/{{ $tip->id }}/edit">
+						@if (\App\Legionnaire::isEditable($legionnaire->id))
+							<a class="btn btn-info btn-xs" href="/legionnaires/{{ $legionnaire->id }}/edit">
 							<i id="star" class="glyphicon glyphicon-pencil"></i>
 							</a>
 						@endif
@@ -57,23 +57,23 @@
 		</div>
 	</div>
 
-	@include('partials._committed_by', ['tip' => $tip])
+	@include('partials._committed_by', ['legionnaire' => $legionnaire])
 
 	<p>
-	<strong>{{ $tip->oneline }}</strong>
+	<strong>{{ $legionnaire->oneline }}</strong>
 	</p>
 
 	<p>
-	{!! $tip->description !!}
+	{!! $legionnaire->description !!}
 	</p>
 
 <script>
-  $("#tip-star").submit(function(e) {
+  $("#legionnaire-star").submit(function(e) {
   	e.preventDefault();
 	$.ajax(
 	{
 		type: 'POST',
-		url: '/tips/star',
+		url: '/legionnaires/star',
 		data: $(this).serialize(),
 		success: function(data) {
 			if (data.outcome == 'starred') {

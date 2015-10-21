@@ -1,13 +1,13 @@
 @extends('layouts.accounts')
 
-@section('title', 'Create a LaraBrain account')
+@section('title', 'Create a LegionRelief account')
 
 @section('content')
 <div class="col-md-6 col-md-offset-3">
 
 {!! Form::open(['url' => '/register', 'class' => 'form']) !!}
 
-<h1>Create a LaraBrain Account</h1>
+<h1>Create a LegionRelief Account</h1>
 
 <div class="form-group">
     {!! Form::label('name', 'Your Name') !!}

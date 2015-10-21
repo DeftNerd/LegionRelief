@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Tip;
+use App\Legionnaire;
 
-class TipsController extends Controller
+class LegionnairesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,47 +16,47 @@ class TipsController extends Controller
      */
     public function index()
     {
-        $tips = Tip::withUnapproved()
+        $legionnaires = Legionnaire::withUnapproved()
             ->orderBy('created_at', 'desc')
             ->orderBy('approved', NULL)
             ->paginate();
 
-        return view('admin.tips.index')
-            ->withTips($tips);
+        return view('admin.legionnaires.index')
+            ->withLegionnaires($legionnaires);
     }
 
     /**
-     * Approve submitted tip
-     * @param  integer $id Primary key of tip
+     * Approve submitted legionnaire
+     * @param  integer $id Primary key of legionnaire
      * @return [type]     [description]
      */
     public function approve($id)
     {
-        $tip = Tip::withUnapproved()->find($id);
+        $legionnaire = Legionnaire::withUnapproved()->find($id);
 
-        $tip->approved = date('Y-m-d G:i:s');
+        $legionnaire->approved = date('Y-m-d G:i:s');
 
-        $tip->save();
+        $legionnaire->save();
 
-        return \Redirect::route('admin.tips.index')->with('Tip approved');
+        return \Redirect::route('admin.legionnaires.index')->with('Legionnaire approved');
 
     }
 
     /**
-     * Unapprove submitted tip
-     * @param  integer $id Primary key of tip
+     * Unapprove submitted legionnaire
+     * @param  integer $id Primary key of legionnaire
      * @return [type]     [description]
      */
     public function unapprove($id)
     {
         
-        $tip = Tip::find($id);
+        $legionnaire = Legionnaire::find($id);
 
-        $tip->approved = NULL;
+        $legionnaire->approved = NULL;
 
-        $tip->save();
+        $legionnaire->save();
 
-        return \Redirect::route('admin.tips.index')->with('Tip unapproved');
+        return \Redirect::route('admin.legionnaires.index')->with('Legionnaire unapproved');
 
     }
 

@@ -36,7 +36,7 @@ class AboutController extends Controller
         {
         	$message->from(env('MAIL_USERNAME'));
             $message->to(env('MAIL_TO'), env('MAIL_NAME'));
-            $message->subject('LaraBrain.com Inquiry');
+            $message->subject('LegionRelief.com Inquiry');
 		});
 
 		return \Redirect::route('home')

@@ -9,13 +9,13 @@
     @foreach ($categories as $category)
 
       <h3>
-        <a href="/categories/{{ $category->name }}">{{ $category->name }}</a> ({{ $category->tips->count() }} {{ $category->tips->count() == 1 ? "tip" : "tips" }})
+        <a href="/categories/{{ $category->name }}">{{ $category->name }}</a> ({{ $category->legionnaires->count() }} {{ $category->legionnaires->count() == 1 ? "legionnaire" : "legionnaires" }})
       </h3>
 
-      @if ($category->tips->count() > 0)
+      @if ($category->legionnaires->count() > 0)
         Latest: 
-        @include('partials._latest_tip', 
-        ['tip' => $category->latestTip()])
+        @include('partials._latest_legionnaire', 
+        ['legionnaire' => $category->latestLegionnaire()])
       @endif
     @endforeach
 

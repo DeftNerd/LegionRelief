@@ -4,9 +4,7 @@
 
   <div class="row">
     <div class="col-md-12">
-LaraBrain is part of the WJ Gilmore, LLC educational network. &middot; Questions? E-mail us at support@larabrain.com.<br />
-Built using the amazing <a href="http://laravel.com">Laravel framework</a>. Laravel is a trademark of Taylor Otwell.<br />
-The Skype logo is a trade mark of Skype and LaraBrain is not affiliated, sponsored, authorized or otherwise associated by/with the Skype group of companies.
+Footer text
 <br /><br />
     </div>
 

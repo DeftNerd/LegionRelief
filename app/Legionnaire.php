@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Lib\Approvals;
 
-class Tip extends Model implements SluggableInterface
+class Legionnaire extends Model implements SluggableInterface
 {
 
 	use SluggableTrait, Approvals;
@@ -24,10 +24,10 @@ class Tip extends Model implements SluggableInterface
     ];
 
     // What attributes are mass-assignable?
-    protected $fillable = ['name', 'oneline', 'description'];
+    protected $fillable = ['name', 'handle', 'oneline', 'address', 'contact', 'charged_at', 'charges', 'sentenced_at', 'sentences', 'released_at', 'paroled_at', 'description', 'status'];
 
     /**
-     * Each tip has a creator
+     * Each legionnaire has a creator
      * @return User The creator's User object
      */
     public function creator()
@@ -36,7 +36,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Each tip belongs to one or more categories
+     * Each legionnaire belongs to one or more categories
      * @return Collection Collection of Category objects
      */
     public function categories()
@@ -45,12 +45,12 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * A tip can be starred by multiple users.
+     * A legionnaire can be starred by multiple users.
      * @return Collection Collection of User objects
      */
     public function users()
     {
-        return $this->belongsToMany('App\User', 'tip_user');
+        return $this->belongsToMany('App\User', 'legionnaire_user');
     }
 
     /**
@@ -65,7 +65,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Retrieve only approved tips
+     * Retrieve only approved legionnaires
      * @param  [type] $query [description]
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -75,7 +75,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Retrieve tips in order of star frequency
+     * Retrieve legionnaires in order of star frequency
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeStarred($query)
@@ -88,7 +88,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Search the tips table 
+     * Search the legionnaires table 
      * @param  Object $query The $query object
      * @param  String $field The searchable field
      * @param  String $value The thing we're looking for
@@ -108,7 +108,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Determines whether user has adequate permissions to edit tip.
+     * Determines whether user has adequate permissions to edit legionnaire.
      * @return Boolean
      */
     public static function isEditable($id)
@@ -124,7 +124,7 @@ class Tip extends Model implements SluggableInterface
     }
 
     /**
-     * Determines whether the tip has been approved
+     * Determines whether the legionnaire has been approved
      * @return boolean true if approved, false if not
      */
     public function isApproved()

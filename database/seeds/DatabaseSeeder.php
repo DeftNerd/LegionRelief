@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(App\CategorySeeder::class);
         $this->call(App\UserSeeder::class);
-        $this->call(App\TipSeeder::class);
+        $this->call(App\LegionnaireSeeder::class);
 
         Model::reguard();
     }

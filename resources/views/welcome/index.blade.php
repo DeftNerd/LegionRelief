@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="search-section" class="section">
-  <div class="section-head">Search the LaraBrain</div>
+  <div class="section-head">Search the Legionnaires</div>
   {!! Form::open(
     [
       'route' => 'search', 
@@ -21,28 +21,28 @@
 
 </div>
 
-<div id="tips-section" class="section">
-  <div class="section-head">The Latest LaraBrain Tips</div>
+<div id="legionnaires-section" class="section">
+  <div class="section-head">The Latest Legion Relief Legionnaires</div>
 
-  @if (count($tips) > 0)
+  @if (count($legionnaires) > 0)
 
-    @foreach ($tips as $tip)
+    @foreach ($legionnaires as $legionnaire)
 
-      @include('partials._tip_line_item', ['tip' => $tip])
+      @include('partials._legionnaire_line_item', ['legionnaire' => $legionnaire])
 
     @endforeach
 
     <div>
-    {!! $tips->render() !!}
+    {!! $legionnaires->render() !!}
     </div>
 
     @else
      <p>
-      No tips.
+      No legionnaires.
     </p>
     @endif
 
 </div> 
-<!-- END tips-section div -->
+<!-- END legionnaires-section div -->
 
 @endsection

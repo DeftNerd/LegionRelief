@@ -52,9 +52,9 @@ class CategoryController extends Controller
     {
         $category = Category::whereName($name)->first();
 
-        $tips = $category->tips()->paginate(20);
+        $legionnaires = $category->legionnaires()->paginate(20);
         return view('categories.show')
-            ->withTips($tips)
+            ->withLegionnaires($legionnaires)
             ->withCategory($category);
     }
 

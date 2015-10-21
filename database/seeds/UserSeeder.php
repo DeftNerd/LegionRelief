@@ -18,18 +18,18 @@ class UserSeeder extends Seeder
 		\DB::table('users')->delete();
 
 		$user = new User();
-		$user->name = 'Burt McGriddle';
-		$user->username = 'burtmc';
-		$user->email = 'burt@example.com';
-		$user->password = bcrypt('secret');
+		$user->name = 'Regular User';
+		$user->username = 'regularuser';
+		$user->email = 'regularuser@legionrelief.com';
+		$user->password = bcrypt('password');
 		$user->is_admin = false;
 		$user->save();
 
 		$user = new User();
-		$user->name = 'Jason Gilmore';
-		$user->username = 'wjgilmore';
-		$user->email = 'wj@wjgilmore.com';
-		$user->password = bcrypt('secret');
+		$user->name = 'Adam Brown';
+		$user->username = 'deftnerd';
+		$user->email = 'adam@deftnerd.com';
+		$user->password = bcrypt('password');
 		$user->is_admin = true;
 		$user->save();
 

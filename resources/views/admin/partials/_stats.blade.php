@@ -1,12 +1,12 @@
-<h2>LaraBrain Statistics</h2>
+<h2>LegionRelief Statistics</h2>
 
 <h3>Users</h3>
 <p>
 Registered users: {{ \App\User::count() }}
 </p>
 
-<h3>Tips</h3>
+<h3>Legionnaires</h3>
 <p>
-Tips submitted: {{ \App\Tip::withUnapproved()->count() }}<br />
-Tips approved: {{ \App\Tip::count() }}
+Legionnaires submitted: {{ \App\Legionnaire::withUnapproved()->count() }}<br />
+Legionnaires approved: {{ \App\Legionnaire::count() }}
 </p>

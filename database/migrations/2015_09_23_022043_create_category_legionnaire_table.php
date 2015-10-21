@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoryTipTable extends Migration
+class CreateCategoryLegionnaireTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateCategoryTipTable extends Migration
      */
     public function up()
     {
-         Schema::create('category_tip', function(Blueprint $table)
+         Schema::create('category_legionnaire', function(Blueprint $table)
         {
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-            $table->integer('tip_id')->unsigned()->nullable();
-            $table->foreign('tip_id')->references('id')->on('tips')->onDelete('set null');
+            $table->integer('legionnaire_id')->unsigned()->nullable();
+            $table->foreign('legionnaire_id')->references('id')->on('legionnaires')->onDelete('set null');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateCategoryTipTable extends Migration
      */
     public function down()
     {
-        Schema::drop('category_tip');
+        Schema::drop('category_legionnaire');
     }
 }

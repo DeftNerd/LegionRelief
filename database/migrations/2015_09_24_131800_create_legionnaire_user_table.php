@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipUserTable extends Migration
+class CreateLegionnaireUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateTipUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('tip_user', function(Blueprint $table)
+        Schema::create('legionnaire_user', function(Blueprint $table)
         {
-            $table->integer('tip_id')->unsigned()->nullable();
-            $table->foreign('tip_id')->references('id')->on('tips')->onDelete('set null');
+            $table->integer('legionnaire_id')->unsigned()->nullable();
+            $table->foreign('legionnaire_id')->references('id')->on('legionnaires')->onDelete('set null');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
@@ -28,6 +28,6 @@ class CreateTipUserTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tip_user');
+        Schema::drop('legionnaire_user');
     }
 }

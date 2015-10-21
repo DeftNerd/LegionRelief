@@ -41,15 +41,15 @@
     </div>
     
     <div class="subsection">
-      <div class="section-head">Recently Starred Tips</div>
+      <div class="section-head">Recently Starred Legionnaire</div>
       <ul class="content-list">
-        @foreach (App\Tip::starred()
-                  ->orderBy('created_at', 'desc')->take(5)->get() as $tip)
+        @foreach (App\Legionnaire::starred()
+                  ->orderBy('created_at', 'desc')->take(5)->get() as $legionnaire)
 
           <li>
           <i class="glyphicon glyphicon-star"></i>
-          <a href="/tips/{{ $tip->slug }}">
-          {{ $tip->name }}
+          <a href="/legionnaires/{{ $legionnaire->slug }}">
+          {{ $legionnaire->name }}
           </a>
           </li>
 
@@ -59,14 +59,14 @@
     </div>
     
     <div class="subsection">
-      <div class="section-head">Recently Submitted Tips</div>
+      <div class="section-head">Recently Submitted Legionnaires</div>
       <ul class="content-list">
-        @foreach (App\Tip::orderBy('created_at', 'desc')->take(5)->get() as $tip)
+        @foreach (App\Legionnaire::orderBy('created_at', 'desc')->take(5)->get() as $legionnaire)
 
           <li>
           <i class="glyphicon glyphicon-paperclip"></i>
-          <a href="/tips/{{ $tip->slug }}">
-          {{ $tip->name }}
+          <a href="/legionnaires/{{ $legionnaire->slug }}">
+          {{ $legionnaire->name }}
           </a>
           </li>
 

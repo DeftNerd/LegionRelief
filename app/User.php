@@ -12,7 +12,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
-use App\Tip;
+use App\Legionnaire;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -51,27 +51,27 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     /**
-     * Each user can own multiple tips, ownership being
-     * defined by having added the tip to the database.
+     * Each user can own multiple legionnaires, ownership being
+     * defined by having added the legionnaire to the database.
      * @return [type] [description]
      */
-    public function tips()
+    public function legionnaires()
     {
-        return $this->hasMany('App\Tip');
+        return $this->hasMany('App\Legionnaire');
     }
 
     /**
-     * Each user can star multiple tips.
+     * Each user can star multiple legionnaires.
      * @return [type] [description]
      */
     public function stars()
     {
-        return $this->belongsToMany('App\Tip', 'tip_user');
+        return $this->belongsToMany('App\Legionnaire', 'legionnaire_user');
     }
 
     /**
-     * Determine if user owns (has submitted) a particular tip
-     * @param  [type] $tip [description]
+     * Determine if user owns (has submitted) a particular legionnaire
+     * @param  [type] $legionnaire [description]
      * @return [type]      [description]
      */
     public function owns($id)
@@ -80,7 +80,7 @@ class User extends Model implements AuthenticatableContract,
         if (\Auth::check())
         {
 
-            if ($this->tips->contains($id))
+            if ($this->legionnaires->contains($id))
                 return true;
             
         }
@@ -91,12 +91,12 @@ class User extends Model implements AuthenticatableContract,
 
     /**
      * Retrieve a list of recently active users, active
-     * being defined by having added a tip
+     * being defined by having added a lagionnaire
      * @return [type] [description]
      */
     static function active($count = 5)
     {
-        return User::whereHas('Tips', function($q) {
+        return User::whereHas('Legionnaires', function($q) {
             $q
             ->groupBy('user_id')
             ->orderBy('created_at', 'desc');

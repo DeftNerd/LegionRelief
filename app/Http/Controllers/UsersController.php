@@ -24,29 +24,29 @@ class UsersController extends Controller
     }
 
     /**
-     * Display a user's submitted tips
+     * Display a user's submitted legionnaires
      * @return [type] [description]
      */
-    public function tips($username)
+    public function legionnaires($username)
     {
     	$user = User::findBySlug($username);
-        $tips = $user->tips()->withUnapproved()->orderBy('created_at', 'desc')->paginate();
-        return view('users.tips')
+        $legionnaires = $user->legionnaires()->withUnapproved()->orderBy('created_at', 'desc')->paginate();
+        return view('users.legionnaires')
         	->withUser($user)
-        	->withTips($tips);
+        	->withLegionnaires($legionnaires);
     }
 
     /**
-     * Display a user's starred tips
+     * Display a user's starred legionnaires
      * @return [type] [description]
      */
     public function stars($username)
     {
     	$user = User::findBySlug($username);
-    	$tips = $user->stars()->withUnapproved()->orderBy('created_at', 'desc')->paginate();
+    	$legionnaires = $user->stars()->withUnapproved()->orderBy('created_at', 'desc')->paginate();
         return view('users.stars')
         	->withUser($user)
-        	->withTips($tips);
+        	->withLegionnaires($legionnaires);
 
     }
 

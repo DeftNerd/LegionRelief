@@ -8,9 +8,9 @@
 
 @section('content')
 
-<h1>Manage Tips</h1>
+<h1>Manage Legionnaires</h1>
 
-@if (count($tips) > 0)
+@if (count($legionnaires) > 0)
 
   <table class="table table-striped table-bordered">
   <thead>
@@ -20,23 +20,23 @@
   <th></th>
   </thead>
 
-    @foreach ($tips as $tip)
+    @foreach ($legionnaires as $legionnaire)
 
       <tr>
         <td>
-          <a href="/tips/{{ $tip->slug }}">{{ $tip->name }}</a>
+          <a href="/legionnaires/{{ $legionnaire->slug }}">{{ $legionnaire->name }}</a>
         </td>
         <td>
-          <a href="/users/{{ $tip->creator->slug }}">{{ $tip->creator->slug }}</a>
+          <a href="/users/{{ $legionnaire->creator->slug }}">{{ $legionnaire->creator->slug }}</a>
         </td>
         <td>
-          {{ $tip->created_at }}
+          {{ $legionnaire->created_at }}
         </td>
         <td>
-          @if ($tip->isApproved())
+          @if ($legionnaire->isApproved())
             {!! Form::open(
               [
-                'route' => ['admin_tips_unapprove', $tip->id], 
+                'route' => ['admin_legionnaires_unapprove', $legionnaire->id], 
                 'method' => 'post'
               ]
               ) !!}
@@ -45,7 +45,7 @@
           @else
             {!! Form::open(
               [
-                'route' => ['admin_tips_approve', $tip->id], 
+                'route' => ['admin_legionnaires_approve', $legionnaire->id], 
                 'method' => 'post'
               ]) !!}
                 <button type="submit" class="btn btn-danger btn-mini">Approve</button>
@@ -59,12 +59,12 @@
   </table>
 
   <div>
-  {!! $tips->render() !!}
+  {!! $legionnaires->render() !!}
   </div>
 
 @else
  <p>
-  No tips.
+  No legionnaires.
 </p>
 @endif
 

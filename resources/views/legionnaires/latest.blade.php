@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
+@section('title', 'Latest Legionnaires')
+
 @section('content')
-<h1>{{ $category->name }}</h1>
+
+<h1>Latest Legionnaires</h1>
 
 @if (count($legionnaires) > 0)
 
@@ -11,7 +14,10 @@
     <p>
     Submitted to Legion Relief by: <a href="/users/{{ $legionnaire->creator->username }}">{{ $legionnaire->creator->username }}</a> at {{ $legionnaire->created_at }}
     </p>
-
+    <p>
+    {{ $legionnaire->oneline }}
+    </p>
+    @include('partials._category_buttons', ['categories' => $legionnaire->categories])
   @endforeach
 
   <div>
@@ -23,7 +29,5 @@
   No legionnaires.
 </p>
 @endif
-
-
 
 @endsection

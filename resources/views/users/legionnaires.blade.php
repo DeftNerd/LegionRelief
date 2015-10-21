@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1><a href="/users/{{ $user->username }}">{{ $user->username }}</a> Starred Legionnaires</h1>
+<h1><a href="/users/{{ $user->username }}">{{ $user->username }}</a> Legionnaires</h1>
 
 @if (count($legionnaires) > 0)
 

@@ -4,27 +4,27 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Tip;
+use App\Legionnaire;
 
 class Category extends Model
 {
 
 	/**
-	 * Each category can belong to many tips
-	 * @return tips
+	 * Each category can belong to many legionnaires
+	 * @return legionnaires
 	 */
-    public function tips()
+    public function legionnaires()
     {
-        return $this->belongsToMany('App\Tip')->orderBy('created_at', 'desc');
+        return $this->belongsToMany('App\Legionnaire')->orderBy('created_at', 'desc');
     }
 
     /**
-     * Retrieve the latest tips associated with a category
+     * Retrieve the latest legionnaires associated with a category
      * @return [type] [description]
      */
-    public function latestTip()
+    public function latestLegionnaire()
     {
-    	return $this->tips()->orderBy('created_at', 'desc')->take(1)->first();
+    	return $this->legionnaires()->orderBy('created_at', 'desc')->take(1)->first();
     }
 
     /** 
@@ -33,10 +33,10 @@ class Category extends Model
      */
     static function active($count = 5)
     {
-        return Category::whereHas('Tips', function($q) {
+        return Category::whereHas('Legionnaires', function($q) {
             $q
             ->groupBy('category_id')
-            ->orderBy('tips.created_at', 'desc');
+            ->orderBy('legionnaires.created_at', 'desc');
         })->take($count)->get();
     }
 

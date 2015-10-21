@@ -4,12 +4,12 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class IntegrationTipTest extends TestCase
+class IntegrationLegionnaireTest extends TestCase
 {
 
     use DatabaseMigrations;
 
-    public function testAuthenticatedUserCanSubmitTip()
+    public function testAuthenticatedUserCanSubmitLegionnaire()
     {
         $user = factory(App\User::class)->create();
 
@@ -20,13 +20,13 @@ class IntegrationTipTest extends TestCase
         $cats = join(',', [$catA->id, $catB->id, $catC->id]);
 
         $this->actingAs($user)
-             ->visit('/tips/create')
-             ->type('Some Example Tip Title', 'name')
-             ->type('Some example tip oneline description', 'oneline')
+             ->visit('/legionnaires/create')
+             ->type('Some Example Legionnaire Title', 'name')
+             ->type('Some example legionnaire oneline description', 'oneline')
              ->type('Some **Markdown* text', 'description')
              ->type($cats, 'categories')
-             ->press('Submit Tip')
-             ->seePageIs('/tips/some-example-tip-title');
+             ->press('Submit Legionnaire')
+             ->seePageIs('/legionnaires/some-example-legionnaire-title');
 
     }
 

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to the LaraBrain - @yield('title')</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <title>Welcome to the LegionRelief - @yield('title')</title>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
   @yield('header')
   <link href="/css/app.css" rel="stylesheet">
 
@@ -38,22 +38,18 @@
   <div class="container">
     <div class="row">
       <div id="top-offer" class="col-sm-7 float-left">
-        Purchase <b>all</b> of the LaraBrain source code and a companion development guide for just $49! {!! link_to_route('about.buy', 'Learn more', []) !!}.
+        Latest Tweet
       </div>
       <div class="col-sm-5">
         <div class="top-offer-links pull-right">
           <a class="offer-link" href="/about">About</a>
           <a class="offer-link" href="/contact">Contact</a>
-          <a class="offer-link" href="/books">Books</a>
-          <a class="offer-link" href="/buy">Purchase</a>
 
           @if(! Auth::check())
             <a class="offer-link" href="/register">Create Account</a>
             <a class="offer-link" href="/login">Sign In</a>
           @else
-            
             <a class="offer-link" href="/logout">Sign Out</a>
-
             @if (Auth::User()->isAdmin())
               <a class="offer-link" href="/admin/">Administration</a>
             @endif
@@ -79,12 +75,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/categories">Categories</a></li>
-        <li><a href="/tips/popular">Popular</a></li>
-        <li><a href="/tips/new">Latest</a></li>
+        <li><a href="/legionnaires/popular">Popular</a></li>
+        <li><a href="/legionnaires/new">Latest</a></li>
         <li>
-        <a href="/tips/create" id="tip-submit" class="btn btn-tip">
+        <a href="/legionnaires/create" id="legionnaire-submit" class="btn btn-legionnaire">
           <span class="glyphicon glyphicon-search"></span>
-          Submit a Tip
+          Submit a Legionnaire
         </a>
         </li>
 
@@ -98,4 +94,3 @@
 
   </div>
 </nav>
-

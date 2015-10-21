@@ -19,27 +19,19 @@ class CategorySeeder extends Seeder
 
 		\DB::table('categories')->insert([
 		 
-			['name' => 'Logging'],
-			['name' => 'Eloquent'],
-			['name' => 'Debugging'],
-			['name' => 'Templates'],
-			['name' => 'Blade'],
-			['name' => 'CSS'],
-			['name' => 'JavaScript'],
-			['name' => 'Database'],
-			['name' => 'Homestead'],
-			['name' => 'Testing'],
-			['name' => 'Deployment'],
-			['name' => 'Relationships'],
-			['name' => 'Forms'],
-			['name' => 'Routing'],
-			['name' => 'Performance'],
-			['name' => 'Mail'],
-			['name' => 'Authentication'],
-			['name' => 'Queues'],
-			['name' => 'Localization'],
-			['name' => 'Elixir'],
-			['name' => 'Views']
+			['name' => 'Script Kiddie'],
+			['name' => 'Troll'],
+			['name' => 'Swatter'],
+			['name' => 'Hacktavist'],
+			['name' => 'Journalist'],
+			['name' => 'Researcher'],
+			['name' => 'Pirate'],
+			['name' => 'Tor'],
+			['name' => 'Hacker'],
+			['name' => 'Pen-tester'],
+			['name' => 'Carder'],
+			['name' => 'Developer'],
+			['name' => 'Botnet']
 
 		]);
 
